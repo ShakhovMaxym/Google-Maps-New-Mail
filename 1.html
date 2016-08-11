@@ -15,19 +15,19 @@
 			var UkraineLocation;
 			//var NewPostCoordList = [];
 			
-			function initMap() { // Функция, которая вызывается, когда API готов к работе
+			function initMap() { // Р¤СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ РІС‹Р·С‹РІР°РµС‚СЃСЏ, РєРѕРіРґР° API РіРѕС‚РѕРІ Рє СЂР°Р±РѕС‚Рµ
 			
-				geocoder = new google.maps.Geocoder(); // Геокодер
-				infowindow = new google.maps.InfoWindow; // Подсказка, появляющаяся при клике на маркер
+				geocoder = new google.maps.Geocoder(); // Р“РµРѕРєРѕРґРµСЂ
+				infowindow = new google.maps.InfoWindow; // РџРѕРґСЃРєР°Р·РєР°, РїРѕСЏРІР»СЏСЋС‰Р°СЏСЃСЏ РїСЂРё РєР»РёРєРµ РЅР° РјР°СЂРєРµСЂ
 				
-				// Создаем карту
+				// РЎРѕР·РґР°РµРј РєР°СЂС‚Сѓ
 				map = new google.maps.Map(document.getElementById('map'), {
 					center: {lat: 0, lng: 0},
 					zoom: 6,
 					disableDefaultUI: true
 				});
 				
-				// Геокодирование адреса - для нахождения Украины
+				// Р“РµРѕРєРѕРґРёСЂРѕРІР°РЅРёРµ Р°РґСЂРµСЃР° - РґР»СЏ РЅР°С…РѕР¶РґРµРЅРёСЏ РЈРєСЂР°РёРЅС‹
 				geocoder.geocode( { 'address' : 'Ukraine'}, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						UkraineLocation = results[0].geometry.location;
@@ -38,7 +38,7 @@
 				});
 				
 				/*
-				geocoder.geocode( { 'address' : 'новая почта', 'bounds': map.getBounds(), 'region':'ua'}, function(results, status) {
+				geocoder.geocode( { 'address' : 'РЅРѕРІР°СЏ РїРѕС‡С‚Р°', 'bounds': map.getBounds(), 'region':'ua'}, function(results, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						for (var i = 0; i < results.length; i++) {
 							var place = results[i];
@@ -49,18 +49,18 @@
 					}
 				});*/
 				
-				// Запрос на поиск всех отделений Новой почты
+				// Р—Р°РїСЂРѕСЃ РЅР° РїРѕРёСЃРє РІСЃРµС… РѕС‚РґРµР»РµРЅРёР№ РќРѕРІРѕР№ РїРѕС‡С‚С‹
 				var request = {
 					bounds: map.getBounds(),
-					query: 'новая почта'
+					query: 'РЅРѕРІР°СЏ РїРѕС‡С‚Р°'
 				};
 
-				// Организация текстового поиска
+				// РћСЂРіР°РЅРёР·Р°С†РёСЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕРёСЃРєР°
 				service = new google.maps.places.PlacesService(map);
 				service.textSearch(request, searchCallback);
 			}
 			
-			// Создание маркеров для всех отделений Новой почты
+			// РЎРѕР·РґР°РЅРёРµ РјР°СЂРєРµСЂРѕРІ РґР»СЏ РІСЃРµС… РѕС‚РґРµР»РµРЅРёР№ РќРѕРІРѕР№ РїРѕС‡С‚С‹
 			function searchCallback(results, status) {
 				if (status == google.maps.places.PlacesServiceStatus.OK) {
 					for (var i = 0; i < results.length; i++) {
@@ -70,7 +70,7 @@
 				}
 			}
 
-			// Создание маркера
+			// РЎРѕР·РґР°РЅРёРµ РјР°СЂРєРµСЂР°
 			function createMarker(place) { 
 				var marker = new google.maps.Marker({
 					map: map,
@@ -89,10 +89,10 @@
 		</script>
 		<script type="text/javascript">
 					
-			// Функция создания кнопки, которая выравнивает карту по центру
+			// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РєРЅРѕРїРєРё, РєРѕС‚РѕСЂР°СЏ РІС‹СЂР°РІРЅРёРІР°РµС‚ РєР°СЂС‚Сѓ РїРѕ С†РµРЅС‚СЂСѓ
 			//function CreateMapControl(controlDiv) { 
-				var controlDiv = document.createElement('div'); // Контейнер для будущей кнопки
-				// Установить CSS для границ кнопки
+				var controlDiv = document.createElement('div'); // РљРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ Р±СѓРґСѓС‰РµР№ РєРЅРѕРїРєРё
+				// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ CSS РґР»СЏ РіСЂР°РЅРёС† РєРЅРѕРїРєРё
 				var controlUI = document.createElement('div');controlUI.style.backgroundColor = '#fff';
 				controlUI.style.border = '2px solid #fff';
 				controlUI.style.borderRadius = '3px';
@@ -101,10 +101,10 @@
 				controlUI.style.marginBottom = '22px';
 				controlUI.style.textAlign = 'center';
 				//controlUI.id = 'a_controlUI';
-				controlUI.title = 'Показать центр карты';
+				controlUI.title = 'РџРѕРєР°Р·Р°С‚СЊ С†РµРЅС‚СЂ РєР°СЂС‚С‹';
 				controlDiv.appendChild(controlUI);
 
-				// Установить CSS для интерьера кнопки
+				// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ CSS РґР»СЏ РёРЅС‚РµСЂСЊРµСЂР° РєРЅРѕРїРєРё
 				var controlText = document.createElement('div');
 				controlText.style.color = 'rgb(25,25,25)';
 				controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
@@ -113,22 +113,22 @@
 				controlText.style.paddingLeft = '5px';
 				controlText.style.paddingRight = '5px';
 				//controlText.id = 'a_controlText';
-				controlText.innerHTML = 'Центр';
+				controlText.innerHTML = 'Р¦РµРЅС‚СЂ';
 				controlUI.appendChild(controlText);
 				
 				//return controlDiv;
 			//}
 			
-			// Создаем кнопку
+			// РЎРѕР·РґР°РµРј РєРЅРѕРїРєСѓ
 		//	var controlDiv = CreateMapControl(controlDiv);
 			
-			// Задаем порядок элемента управления среди остальных элементов в заданной позиции
+			// Р—Р°РґР°РµРј РїРѕСЂСЏРґРѕРє СЌР»РµРјРµРЅС‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ СЃСЂРµРґРё РѕСЃС‚Р°Р»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РІ Р·Р°РґР°РЅРЅРѕР№ РїРѕР·РёС†РёРё
 			controlDiv.index = 1; 
 
-			// Добавить кнопку в карту чуть ниже правого верхнего угла
+			// Р”РѕР±Р°РІРёС‚СЊ РєРЅРѕРїРєСѓ РІ РєР°СЂС‚Сѓ С‡СѓС‚СЊ РЅРёР¶Рµ РїСЂР°РІРѕРіРѕ РІРµСЂС…РЅРµРіРѕ СѓРіР»Р°
 			map.controls[google.maps.ControlPosition.RIGHT_TOP].push(controlDiv);
 
-			// Обработчик события клика по кнопке
+			// РћР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ РєР»РёРєР° РїРѕ РєРЅРѕРїРєРµ
 			google.maps.event.addDomListener(controlDiv, 'click', function() {
 				var chicago = {lat: 41.850, lng: -87.650};
 				map.setCenter(chicago);
