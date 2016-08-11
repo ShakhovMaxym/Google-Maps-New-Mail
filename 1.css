@@ -1,0 +1,28 @@
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+}
+
+#map { 
+	height: 600px;
+	width: 850px;
+	margin: 100px;
+}
+
+#a_controlUI { 
+	backgroundColor: #fff;
+	border: 2px solid #fff;
+	cursor: pointer;
+	marginBottom: 22px;
+	textAlign: center;
+}
+
+#a_controlText {
+	color: rgb(25,25,25);
+	fontFamily: Arial, sans-serif;
+	fontSize: 16px;
+	lineHeight: 38px;
+	paddingLeft: 5px;
+	paddingRight: 5px;
+}
